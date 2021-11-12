@@ -5,17 +5,17 @@ keywords: ephesus, blog
 description: >-
   Ephesus - Minimalist Jekyll Theme
 lang: en-US
-timezone:  Europe/Istanbul
+timezone: Europe/Istanbul
 repo: https://github.com/onepase/Ephesus # site repo [optional]
-google_verify:      XXX # Put your Google Verification here
-google_analytics:   UA-XXXXXXXX-00 # Put your Google Analytics code
-discus-identifier:  XXX
+google_verify: XXX # Put your Google Verification here
+google_analytics: UA-XXXXXXXX-00 # Put your Google Analytics code
+discus-identifier: XXX
 
 # Author settings
 author:
   name: Hakan Torun
   bio: Computer Engineer @pardinus <br> Founder @zaqa <br> Open Source /#linux
-  picture: assets/images/profile.jpg 
+  picture: assets/images/profile.jpg
   github: onepase # github username
   twitter: onepase # twitter username
   facebook: onepase # facebook username
@@ -24,9 +24,8 @@ author:
   linkedin: hakantorun # linkedin username
   email: your-email@email.com # email adress
 
-
 # URL settings
-url: "http://127.0.0.1:4000" # Domain Name of host. [username].github.io for github pages
+url: "https://drrd100.github.io/" # Domain Name of host. [username].github.io for github pages
 baseurl: "" # sub folder for jekyll site. only if jekyll site not in root of host. leave blank if not wishd. always add / in front.
 permalink: pretty
 
@@ -34,7 +33,6 @@ markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
-
 
 exclude:
   - .jekyll-cache
@@ -59,26 +57,23 @@ collections:
   posts:
     output: true
     permalink: /:slug
-  
+
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
     values:
       layout: "default"
-  -
-    scope:
+  - scope:
       path: ""
       type: "pages"
     values:
       layout: "page"
-  -
-    scope:
+  - scope:
       path: ""
       type: "posts"
     values:
       layout: "post"
 
 relative_links:
-  enabled:     true
+  enabled: true
   collections: false
