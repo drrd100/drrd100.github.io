@@ -1,28 +1,28 @@
 # Site settings
-site: Ephesus
-title: Ephesus - Minimalist Jekyll Theme
-keywords: ephesus, blog
+site: 양사장의 끄적끄적
+title: 양사장의 끄적끄적
+keywords: web,blog,webpublish
 description: >-
-  Ephesus - Minimalist Jekyll Theme
-lang: en-US
-timezone: Europe/Istanbul
-repo: https://github.com/onepase/Ephesus # site repo [optional]
-google_verify: XXX # Put your Google Verification here
-google_analytics: UA-XXXXXXXX-00 # Put your Google Analytics code
-discus-identifier: XXX
+  코린이의 메모장
+lang: ko
+timezone: asia/Seoul
+repo: https://github.com/drrd100/drrd100.github.io # site repo [optional]
+google_verify: # Put your Google Verification here
+google_analytics: # Put your Google Analytics code
+discus-identifier:
 
 # Author settings
 author:
-  name: Hakan Torun
-  bio: Computer Engineer @pardinus <br> Founder @zaqa <br> Open Source /#linux
+  name: 양사장의 끄적끄적
+  bio: Cook 11년<br>Web dev 1년
   picture: assets/images/profile.jpg
-  github: onepase # github username
-  twitter: onepase # twitter username
-  facebook: onepase # facebook username
-  instagram: onepase # instagram username
-  youtube: https://www.youtube.com/channel/UCMmAto-wxBootXN91AzBiDg # youtube username
-  linkedin: hakantorun # linkedin username
-  email: your-email@email.com # email adress
+  #github: onepase # github username
+  #twitter: onepase # twitter username
+  #facebook: onepase # facebook username
+  instagram: https://www.instagram.com/__.yeol.__/?hl=ko # instagram username
+  #youtube: https://www.youtube.com/channel/UCMmAto-wxBootXN91AzBiDg # youtube username
+  #linkedin: hakantorun # linkedin username
+  email: hyynag@jjbncorp.com # email adress
 
 # URL settings
 url: "https://drrd100.github.io/" # Domain Name of host. [username].github.io for github pages

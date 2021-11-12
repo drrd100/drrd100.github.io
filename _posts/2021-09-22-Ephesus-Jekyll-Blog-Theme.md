@@ -1,69 +1,21 @@
 ---
-title: "Ephesus Jekyll Blog Theme"
-date: 2021-09-22T00:00:00+00:00
+title: "첫 블로그"
+date: 2021-11-12T00:00:00+00:00
 author: Hakan Torun
 layout: post
 permalink: /ephesus-jekyll-blog-theme/
-categories: Genel
-tags: [ephesus, jekyll]
+categories: blog
+tags: [blog, feed]
 ---
-Lorem markdownum nimiumque inutile ulterius tum fluctus arbore aethere in
-laqueosque lorisque tabuerit. Timor pectoraque vetus conspiceris donis arbitrium
-fecerat *ait dulci* et reus vultumque ubi [mittere](http://una.net) cernunt
-hosti.
 
-{% highlight c %}
-#include <stdio.h>
+**2021/11/12 블로그 개설**
 
-//Function declarations
-int is_prime(int n);
-void goldbach(int g);
-
-int main(){
-	int number = 0;
-	while(1){
-		printf("Enter even number:");
-		scanf("%d",&number);
-		if(number>2 && number%2==0){
-			goldbach(number);
-		}
-		else{
-			printf("Incorrect number!");
-		}
-		printf("");
-	}
-	return 0;
-}
-
-{% endhighlight %}
-
-## Nec partus ferox veniam serpentis servet viro
-
-Sed **premunt turba verum** circueunt ex inmurmurat confundit area premente
-[unus](http://spectante-mulcet.com/magna), qui resupinus facit adsuetam. Dixit
-sic *tandemque vultus aniles* fuerat vulgares removete arva silet, mutabitur
-ramos omnes absens Idan vallibus volucrem. Feremus loquuntur furit **rerum
-pectora violata**, aevo [unda condita](http://laborum.net/modo) non bracchia
-viscera. *Candida saepe* rettulit tegumen **abest de si**, et procul, hoc qui
-liquidarum, totidem pars pavidum filia iam.
-
-- Aulaea saevam
-- Animam conquerar
-- Lycormas fatemur germanam
-
-## Fata huc cessura secant
-
-Est urbem ferrum gratia altera? In nec profundo valuit vidit, ira o adhuc
-convicia. Quoque simul, nisi ausis equus tum veluti: gener. Lacu abesset pinnas,
-albaque, esto, quem quod.
-
-1. Deceant tormenta nomine
-2. Furti visi honorati Dardanio profundo genus superos
-3. Cum cadi fundit accensus silentibus ipsa ambiguum
-4. Cogis data sparsosque falleret nepos de sedem
-5. Ingeminat falcato somno iratus fac paterna
-
-**Sua communiter** hoc exire iurares usus, *percusso iunonis tibi*? Ubi magna
-crinem adsueta ancipitesque sitim; et genus ferumque? Quod **lupos tutus**, cum
-insania [tanta Cephalum](http://sparserat.org/cinyras) harundine eligit
-genitoris ad concutit.
+1년차 퍼블리셔..기술블로그를 해보려 검색하던중 깃헙블로그를 발견했다.<br>
+아직 영어도 잘못하고 터미널을 잘 못쓰는 바람에 4시간을 버벅였다..ㅋㅋ<br>
+<br>
+VScode로 블로그를 쓰고 있다니 무언가 멋이난다..내가 이걸 쓰고있다니 신기하다 ㅋㅋ<br>
+1일1커밋은 못하더라도 1주 3커밋을 목표로 블로그를 써볼까한다..<br>
+아직 사용법을 잘모르기 때문에 당분간은 그동안 해봤던거를 연습삼아 커밋해볼까 한다.<br>
+<br>
+아직 시작하지 않았지만 설렌다 ㅎㅎ<br>
+방금 저장하고 확인했는데 줄바꿈을 안했네 ㅋㅋㅋCSS reset도 안되어있네ㅋㅋ
