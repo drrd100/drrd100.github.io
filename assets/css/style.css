@@ -234,6 +234,7 @@ body {
 .profile-about {
   width: 60%;
   text-align: right;
+  letter-spacing: -0.05em;
 }
 .profile-about > h2 {
   margin-bottom: 10px;
