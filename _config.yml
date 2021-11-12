@@ -17,13 +17,13 @@ avatar: /assets/image/avatar.png
 
 # Your website URL (e.g. https://forever-jekyll.github.io or https://forever-jekyll.com)
 # Used for Sitemap.xml and your RSS feed
-url: https://forever-jekyll.github.io
+url: https://drrd100.github.io
 
 # If you're hosting your site at a Project repository on GitHub pages
 # (http://yourusername.github.io/repository-name)
 # and NOT your User repository (http://yourusername.github.io)
 # then add in the baseurl here, like this: "/repository-name"
-baseurl: ""
+baseurl: "/index.html"
 
 # Navigation menu
 navigation_links:
@@ -42,12 +42,12 @@ footer_links:
     url: feed.xml
     icon: fa fa-rss-square
 
-  - title: Twitter
-    url: https://twitter.com/jekyllrb
+  - title: Isntagram
+    url: https://www.instagram.com/__.yeol.__/?hl=ko
     icon: fa fa-twitter-square
 
   - title: GitHub
-    url: https://github.com/forever-jekyll
+    url: https://github.com/drrd100
     icon: fa fa-github-square
 
 # Enter your copyright text if you wish to override the default one.
