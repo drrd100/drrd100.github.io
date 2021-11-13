@@ -1,0 +1,24 @@
+I"�
+<p>현재 URL 파라미터 값을 구할 땐 loaction.search 를 써준다.</p>
+
+<p>쇼핑몰 상품리스트에서 콘솔창에 location.search 를 입력한 결과.</p>
+
+<div>
+    <img src="../assets/images/211112/url.jpg" alt="" />
+    <img src="../assets/images/211112/consloe.jpg" alt="" />
+</div>
+
+<blockquote>
+  <p>정규식 표현을 이용하여 이용한 함수</p>
+</blockquote>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">getParameterByName</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">[\[]</span><span class="sr">/</span><span class="p">,</span> <span class="dl">"</span><span class="se">\\</span><span class="s2">[</span><span class="dl">"</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">[\]]</span><span class="sr">/</span><span class="p">,</span> <span class="dl">"</span><span class="se">\\</span><span class="s2">]</span><span class="dl">"</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">regex</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="dl">"</span><span class="s2">[</span><span class="se">\\</span><span class="s2">?&amp;]</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">=([^&amp;#]*)</span><span class="dl">"</span><span class="p">),</span>
+    <span class="nx">results</span> <span class="o">=</span> <span class="nx">regex</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">location</span><span class="p">.</span><span class="nx">search</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">results</span> <span class="o">==</span> <span class="kc">null</span>
+    <span class="p">?</span> <span class="dl">""</span>
+    <span class="p">:</span> <span class="nb">decodeURIComponent</span><span class="p">(</span><span class="nx">results</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">\+</span><span class="sr">/g</span><span class="p">,</span> <span class="dl">""</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></div>
+:ET
