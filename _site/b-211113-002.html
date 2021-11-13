@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>a테그 URL 파라미터 가져오기 attr() - 양사장의 끄적끄적</title>
+		<meta name="description" content="코린이의 메모장">
+		<meta name="keywords" content="blogJQJS">
+		<base href="http://localhost:4000" />
+		
+    	<meta content="2021-11-13T09:00:00+09:00" property="article:published_time">
+    	<meta content="http://localhost:4000/about/" property="article:author">
+  		
+		<meta property="og:site_name" content="양사장의 끄적끄적">
+		<meta property="og:type" content="article" />
+		<meta property="og:url" content="http://localhost:4000/b-211113-002"/>
+		<meta property="og:title" content="a테그 URL 파라미터 가져오기 attr() - 양사장의 끄적끄적" />
+		<meta property="og:description" content="코린이의 메모장" />
+		<meta property="og:image" content="http://localhost:4000/assets/images/favicon.png"/>
+		<meta name="twitter:card" content="summary"/>
+		<meta property="twitter:title" content="a테그 URL 파라미터 가져오기 attr() - 양사장의 끄적끄적" />
+		<meta property="twitter:description" content="코린이의 메모장" />
+		<meta property="twitter:image" content="http://localhost:4000/assets/images/favicon.png" />
+		<link rel="stylesheet" href="/assets/css/highlight.css">
+		<link rel="stylesheet" href="/assets/css/style.css">
+		<link rel="shortcut icon" href="/assets/images/favicon.png" />
+		<link rel="alternate" type="application/atom+xml" title="양사장의 끄적끄적" href="http://localhost:4000/atom.xml">
+		<link rel="alternate" type="application/json" title="양사장의 끄적끄적" href="http://localhost:4000/feed.json" />
+		<link rel="sitemap" type="application/xml" title="sitemap" href="http://localhost:4000/sitemap.xml" />
+		<meta name="google-site-verification" content="" />
+	</head>
+<body>
+<div class="container yeol">
+	<div class="profile">
+		<a href="http://localhost:4000" class="profile-image"></a>
+		<div class="profile-about">
+			<h2 style="margin-bottom: 0; font-weight: 700;">양사장의 끄적끄적</h2>
+			
+			
+			
+				<a href="https://instagram.com/https://www.instagram.com/__.yeol.__/?hl=ko" target="_blank"><img src="assets/images/icon/instagram.svg" class="social-icon"></a>
+			
+			
+			
+			
+			<a href="about"><img src="assets/images/icon/me.svg" class="social-icon"></a>
+			<br>
+			Cook 11년<br>Web dev 1년
+			<br>
+			<div class="mode" id="mode-switcher" onclick="toggleNightMode();">
+				<span></span>
+			</div>
+		</div>
+	</div>
+	
+<div class="post-header">
+	<div class="post-date">13.11.2021</div>
+	<div class="post-share">
+		Share:&nbsp; 
+		<a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/002" target="_blank"><img src="assets/images/icon/facebook.svg" class="social-icon"></a>
+		<a href="https://twitter.com/intent/tweet?source=tweetbutton&amp;original_referer=http://localhost:4000/002&amp;text=a테그 URL 파라미터 가져오기 attr() - http://localhost:4000/002" target="_blank"><img src="assets/images/icon/twitter.svg" class="social-icon"></a>
+		<a href="https://api.whatsapp.com/send?text=http://localhost:4000/002" target="_blank"><img src="assets/images/icon/whatsapp.svg" class="social-icon"></a>
+	</div>
+</div>
+
+<div class="blog-post-content">
+	<h1>a테그 URL 파라미터 가져오기 attr()</h1>
+	<p><span class="code-title">a 태그에서 attr() 함수로 href 속성값을 가져와 정규표현식으로 걸러내면 된다.</span></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">aurl</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">선택자</span><span class="dl">"</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="dl">"</span><span class="s2">href</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">aurl</span><span class="p">);</span> <span class="c1">// href 값</span>
+</code></pre></div></div>
+
+<p><span class="code-desc">
+나는 카페24에서 상품분류에 따라 GNB에 ative 효과를 줘야했다.
+탭을 내가만들면 좋지만 카페24는 모듈 변수로 GNB리스트를 가져오고 상품분류도 파라미터에 따라 다르게 가져온다.
+</span></p>
+
+<div class="content-img">
+    <img src="../assets/images/211112/cafe24.jpg" alt="" />
+</div>
+
+<ul class="misson-list">
+    <li>1. 현재 페에지 상품분류 파라미터 구하기</li>
+    <li>2. each()함수로 반복하여 변수로 가져온 GNB리스트 a태그 파라미터 구하기</li>
+    <li>3. 비교해서 엑티브 효과주기</li>
+</ul>
+<p><span class="code-title">1. 현재 페이지 상품분류 파라미터 구하기</span></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">regex</span> <span class="o">=</span> <span class="sr">/</span><span class="se">[^</span><span class="sr">0-9</span><span class="se">]</span><span class="sr">/g</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">getloca</span> <span class="o">=</span> <span class="nx">location</span><span class="p">.</span><span class="nx">search</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">getparm</span> <span class="o">=</span> <span class="nx">getloca</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">regex</span><span class="p">,</span> <span class="dl">""</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><span class="code-desc">- location.search를 이용해서 현제페이지의 파라미터값을 가져와 정규표현식으로 숫자만 가져왔다.</span>
+<span class="code-title">2. each()함수로 반복하여 변수로 가져온 GNB리스트 a태그 파라미터 구하기</span></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">.cate-list li a</span><span class="dl">"</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">aurl</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="dl">"</span><span class="s2">href</span><span class="dl">"</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">aparm</span> <span class="o">=</span> <span class="nx">aurl</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">regex</span><span class="p">,</span> <span class="dl">""</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p><span class="code-desc">
+attr()로 url을 가져온 뒤 정규표현식으로 숫자만 가져온다. 다행히 파라미터가 복잡하지 않아 숫자만 가져오면 됐다<br />
+each()문으로 리스트들을 가져온다 리스트가 8개이다.</span></p>
+
+<p><span class="code-title">3. 비교해서 엑티브 효과주기</span></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">.cate-list li a</span><span class="dl">"</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">aurl</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="dl">"</span><span class="s2">href</span><span class="dl">"</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">aparm</span> <span class="o">=</span> <span class="nx">aurl</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">regex</span><span class="p">,</span> <span class="dl">""</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">getparm</span> <span class="o">==</span> <span class="nx">aparm</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">.cate-list li a</span><span class="dl">"</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="dl">"</span><span class="s2">cate-active</span><span class="dl">"</span><span class="p">);</span>
+    <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="dl">"</span><span class="s2">cate-active</span><span class="dl">"</span><span class="p">);</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p><span class="code-desc">
+현재페이지의 파라미터와 리스트의 파라미터를 구했으니 if문으로 비교하여 일치하는 메뉴에 addClass()로 active 효과를 준다.
+</span></p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.cate-active</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#ef860e</span> <span class="cp">!important</span><span class="p">;</span>
+  <span class="nl">font-weight</span><span class="p">:</span> <span class="m">700</span> <span class="cp">!important</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><span class="code-desc">스크립트로 CSS를 바꿔주는거 보다 클래스를 줬다뺐다하는게 관리하기 편하다</span></p>
+
+</div>
+<div class="tags-container">
+	
+		<a href="http://localhost:4000/tags/#blog" class="post-tag">blog</a>, 
+	
+		<a href="http://localhost:4000/tags/#JQ" class="post-tag">JQ</a>, 
+	
+		<a href="http://localhost:4000/tags/#JS" class="post-tag">JS</a>
+	
+</div>
+<div class="navigation">
+	
+		<a class="prev" href="/b-211113-001">< 자바스크립트 URL 파라미터 가져오기 location.search</a>
+	 
+</div>
+
+	<div class="footer">
+		<span>경험이 곧 돈이다.</span>
+	</div>
+</div>
+	<script src="assets/js/ephesus.js"></script>
+	<script type="text/javascript">
+		if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+			document.documentElement.setAttribute('data-theme', 'dark');
+			document.getElementById('mode-switcher').classList.add('active');
+		}
+	</script>
+
+	
+</body>
+</html>

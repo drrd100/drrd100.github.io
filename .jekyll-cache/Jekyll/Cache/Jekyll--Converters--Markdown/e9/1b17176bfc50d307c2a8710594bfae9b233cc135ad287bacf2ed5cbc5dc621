@@ -1,0 +1,4 @@
+I"<p>a 태그에서 URL 파라미터를 구해오는 방법은 attr() 함수로 href 속성값을 가져와 정규표현식으로 걸러내면 된다.</p>
+
+<p><a href="https://fellowtuts.com/jquery/getting-query-string-values-in-javascript/?a=a" class="refer">출처</a></p>
+:ET

@@ -23,8 +23,12 @@ em {
   color: #ccc;
   font-style: normal;
 }
-p {
+p,
+ul,
+ol {
   margin: 0;
+  list-style: none;
+  padding: 0;
 }
 body {
   font-family: "Spoqa Han Sans Neo", "sans-serif" !important;
@@ -408,7 +412,11 @@ pre {
 }
 
 .content-img {
+  width: 100%;
   margin: 10px 0;
+}
+.img211112 > div {
+  width: 200px;
 }
 .refer {
   display: block;
@@ -420,4 +428,22 @@ pre {
   display: block;
   font-size: 14px;
   padding: 5px 0;
+}
+.page-number {
+  font-size: 12px;
+}
+.misson-list {
+  font-size: 13px;
+  padding: 10px 0;
+}
+.code-title {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+}
+.code-desc {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  margin: 5px 0 20px;
 }

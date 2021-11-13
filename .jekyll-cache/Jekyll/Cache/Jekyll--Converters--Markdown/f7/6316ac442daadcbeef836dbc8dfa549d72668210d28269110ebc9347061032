@@ -1,0 +1,23 @@
+I"�<p>a 태그에서 URL 파라미터를 구해오는 방법은 attr() 함수로 href 속성값을 가져와 정규표현식으로 걸러내면 된다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">aurl</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">선택자</span><span class="dl">"</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="dl">"</span><span class="s2">href</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">aurl</span><span class="p">);</span> <span class="c1">// href 값</span>
+</code></pre></div></div>
+
+<p>나는 카페24에서 상품분류에 따라 GNB에 ative 효과를 줘야했다.
+탭을 내가만들면 좋지만 카페24는 모듈 변수로 GNB리스트를 가져오고 상품분류도 파라미터에 따라 다르게 가져온다.</p>
+
+<div>
+    <img src="../assets/images/211112/cafe24.jpg" alt="" />
+</div>
+
+<ul class="misson-list">
+    <li>1. 현재 페에지 상품분류 파라미터 구하기</li>
+    <li>2. each()함수로 반복하여 변수로 가져온 GNB리스트 a태그 파라미터 구하기</li>
+    <li>3. 비교해서 엑티브 효과주기 ( 색변경 )</li>
+</ul>
+<p><span class="code-title">1. 현재 페에지 상품분류 파라미터 구하기</span></p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">aurl</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">선택자</span><span class="dl">"</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="dl">"</span><span class="s2">href</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">aurl</span><span class="p">);</span> <span class="c1">// href 값</span>
+</code></pre></div></div>
+:ET

@@ -1,0 +1,55 @@
+I"�<p><span class="code-title">현재 URL 파라미터 값을 구할 땐 loaction.search 를 써준다.</span></p>
+
+<div class="content-img img211112">
+    <div><img src="../assets/images/211112/url.jpg" alt="" /></div>
+    <div><img src="../assets/images/211112/consloe.jpg" alt="" /></div>
+</div>
+<p>쇼핑몰 상품리스트에서 콘솔창에 location.search 를 입력한 결과.</p>
+
+<ul>
+  <li>정규표현식을 이용하여 파라미터 얻어오기</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">getParameterByName</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">[\[]</span><span class="sr">/</span><span class="p">,</span> <span class="dl">"</span><span class="se">\\</span><span class="s2">[</span><span class="dl">"</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">[\]]</span><span class="sr">/</span><span class="p">,</span> <span class="dl">"</span><span class="se">\\</span><span class="s2">]</span><span class="dl">"</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">regex</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="dl">"</span><span class="s2">[</span><span class="se">\\</span><span class="s2">?&amp;]</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">=([^&amp;#]*)</span><span class="dl">"</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">results</span> <span class="o">=</span> <span class="nx">regex</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">location</span><span class="p">.</span><span class="nx">search</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">results</span> <span class="o">==</span> <span class="kc">null</span>
+    <span class="p">?</span> <span class="dl">""</span>
+    <span class="p">:</span> <span class="nb">decodeURIComponent</span><span class="p">(</span><span class="nx">results</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">\+</span><span class="sr">/g</span><span class="p">,</span> <span class="dl">""</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><em>아..삼항연산자가 자꾸 줄바꿈이 되네..</em></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">patId</span> <span class="o">=</span> <span class="nx">getParameterByName</span><span class="p">(</span><span class="dl">"</span><span class="s2">cate_no</span><span class="dl">"</span><span class="p">);</span> <span class="c1">// 60</span>
+</code></pre></div></div>
+
+<p><span class="conment">나는 숫자만 뽑아봤다.</span></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">getloca</span> <span class="o">=</span> <span class="nx">location</span><span class="p">.</span><span class="nx">search</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">regex</span> <span class="o">=</span> <span class="sr">/</span><span class="se">[^</span><span class="sr">0-9</span><span class="se">]</span><span class="sr">/g</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">getparm</span> <span class="o">=</span> <span class="nx">getloca</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">regex</span><span class="p">,</span> <span class="dl">""</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">getparm</span><span class="p">);</span> <span class="c1">//60ㅇ</span>
+</code></pre></div></div>
+
+<ul>
+  <li>파라미터를 객체로 가져오는 함수</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">get_query</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">qs</span> <span class="o">=</span> <span class="nx">url</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="nx">url</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="dl">"</span><span class="s2">?</span><span class="dl">"</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="s2">&amp;</span><span class="dl">"</span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">{};</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">qs</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">qs</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">qs</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="s2">=</span><span class="dl">"</span><span class="p">);</span>
+    <span class="nx">result</span><span class="p">[</span><span class="nx">qs</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">decodeURIComponent</span><span class="p">(</span><span class="nx">qs</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">get_query</span><span class="p">();</span> <span class="c1">//result { cate_no: "60", }</span>
+</code></pre></div></div>
+
+<p><a href="https://fellowtuts.com/jquery/getting-query-string-values-in-javascript/?a=a" class="refer">출처</a></p>
+:ET

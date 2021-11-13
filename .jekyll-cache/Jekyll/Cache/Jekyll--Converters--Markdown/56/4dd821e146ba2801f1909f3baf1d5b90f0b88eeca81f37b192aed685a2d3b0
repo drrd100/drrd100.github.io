@@ -1,0 +1,56 @@
+I"<p>a 태그에서 URL 파라미터를 구해오는 방법은 attr() 함수로 href 속성값을 가져와 정규표현식으로 걸러내면 된다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">aurl</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">선택자</span><span class="dl">"</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="dl">"</span><span class="s2">href</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">aurl</span><span class="p">);</span> <span class="c1">// href 값</span>
+</code></pre></div></div>
+
+<p>나는 카페24에서 상품분류에 따라 GNB에 ative 효과를 줘야했다.
+탭을 내가만들면 좋지만 카페24는 모듈 변수로 GNB리스트를 가져오고 상품분류도 파라미터에 따라 다르게 가져온다.</p>
+
+<div>
+    <img src="../assets/images/211112/cafe24.jpg" alt="" />
+</div>
+
+<ul class="misson-list">
+    <li>1. 현재 페에지 상품분류 파라미터 구하기</li>
+    <li>2. each()함수로 반복하여 변수로 가져온 GNB리스트 a태그 파라미터 구하기</li>
+    <li>3. 비교해서 엑티브 효과주기 ( 색변경 )</li>
+</ul>
+<p><span class="code-title">1. 현재 페에지 상품분류 파라미터 구하기</span></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">regex</span> <span class="o">=</span> <span class="sr">/</span><span class="se">[^</span><span class="sr">0-9</span><span class="se">]</span><span class="sr">/g</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">getloca</span> <span class="o">=</span> <span class="nx">location</span><span class="p">.</span><span class="nx">search</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">getparm</span> <span class="o">=</span> <span class="nx">getloca</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">regex</span><span class="p">,</span> <span class="dl">""</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><span class="code-desc">- location.search를 이용해서 현제페이지의 파라미터값을 가져와 정규표현식으로 숫자만 가져왔다.</span>
+<span class="code-title">2. each()함수로 반복하여 변수로 가져온 GNB리스트 a태그 파라미터 구하기</span></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">.cate-list li a</span><span class="dl">"</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">aurl</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="dl">"</span><span class="s2">href</span><span class="dl">"</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">aparm</span> <span class="o">=</span> <span class="nx">aurl</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">regex</span><span class="p">,</span> <span class="dl">""</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p><span class="code-desc">
+attr()로 url을 가져온 뒤 정규표현식으로 숫자만 가져온다. 다행히 파라미터가 복잡하지 않아 숫자만 가져오면 됐다each()문으로 리스트들을 가져온다 리스트가 8개이다.</span></p>
+
+<p>&lt;/span&gt;</p>
+
+<p><span class="code-title">3. 비교해서 엑티브 효과주기 ( 색변경 )</span></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">.cate-list li a</span><span class="dl">"</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">aurl</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="dl">"</span><span class="s2">href</span><span class="dl">"</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">aparm</span> <span class="o">=</span> <span class="nx">aurl</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">regex</span><span class="p">,</span> <span class="dl">""</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">getparm</span> <span class="o">==</span> <span class="nx">aparm</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">.cate-list li a</span><span class="dl">"</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="dl">"</span><span class="s2">cate-active</span><span class="dl">"</span><span class="p">);</span>
+    <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="dl">"</span><span class="s2">cate-active</span><span class="dl">"</span><span class="p">);</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p><span class="code-desc">
+현재페이지의 파라미터와 리스트의 파라미터를 구했으니 if문으로 비교하여 일치하는 메뉴에 addClass()로 active 효과를 준다.
+</span></p>
+:ET
